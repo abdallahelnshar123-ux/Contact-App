@@ -3,9 +3,9 @@ import 'package:contact_app/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class DataTextField extends StatelessWidget {
-  String hintText;
+  final String hintText;
 
-  DataTextField({super.key, required this.hintText});
+  const DataTextField({super.key, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
