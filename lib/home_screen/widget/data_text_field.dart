@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class DataTextField extends StatelessWidget {
   String hintText;
 
-  DataTextField({required this.hintText});
+  DataTextField({super.key, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
