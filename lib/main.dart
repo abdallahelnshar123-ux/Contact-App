@@ -15,10 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.homeRouteName,
-      routes: {
-        AppRoutes.homeRouteName: (context) => HomeScreen(),
-
-      },
+      routes: {AppRoutes.homeRouteName: (context) => HomeScreen()},
       themeMode: ThemeMode.light,
       theme: AppTheme.lightTheme,
     );

@@ -1,3 +1,4 @@
+import 'package:contact_app/home_screen/widget/bottom_sheet_widget.dart';
 import 'package:contact_app/utils/app_assets.dart';
 import 'package:contact_app/utils/app_colors.dart';
 import 'package:contact_app/utils/app_styles.dart';
@@ -11,17 +12,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
+
+      /// route logo ==========================================================
       appBar: AppBar(
         title: Image.asset(AppAssets.routeLogo),
         titleSpacing: context.width * 0.065,
         toolbarHeight: context.height * 0.1,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppColors.goldColor,
-        child: Icon(Icons.add, color: AppColors.darkBlueColor, size: 35),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
+      /// screen body =========================================================
       body: Container(
         padding: EdgeInsets.fromLTRB(
           context.width * 0.04,
@@ -31,18 +31,38 @@ class HomeScreen extends StatelessWidget {
         ),
         height: double.infinity,
         width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Lottie.asset(AppAssets.emptyListAnimation),
-            Text(
-              'There is No Contacts Added Here',
-              style: AppStyles.medium20Gold,
-              textAlign: TextAlign.center,
-            ),
-          ],
+        child: SingleChildScrollView(
+          /// animation & text ===============================================
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              /// animation ==================================================
+              Lottie.asset(AppAssets.emptyListAnimation),
+
+              /// text========================================================
+              Text(
+                'There is No Contacts Added Here',
+                style: AppStyles.medium20Gold,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ),
+
+      /// bottom sheet button ==================================================
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => BottomSheetWidget(),
+            isScrollControlled: true,
+          );
+        },
+        backgroundColor: AppColors.goldColor,
+        child: Icon(Icons.add, color: AppColors.darkBlueColor, size: 35),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
