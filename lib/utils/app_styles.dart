@@ -26,4 +26,16 @@ class AppStyles {
     fontFamily: 'Inter',
     color: AppColors.darkBlueColor,
   );
+  static final TextStyle medium14DarkBlue = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Inter',
+    color: AppColors.darkBlueColor,
+  );
+  static final TextStyle medium10White = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Inter',
+    color: AppColors.whiteColor,
+  );
 }

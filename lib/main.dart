@@ -1,9 +1,19 @@
 import 'package:contact_app/home_screen/home_screen.dart';
 import 'package:contact_app/utils/app_routes.dart';
 import 'package:contact_app/utils/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(MyApp());
 }
 
